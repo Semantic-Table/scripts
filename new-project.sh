@@ -37,6 +37,7 @@ clone_repo_to_blank() {
 main() {
     help
     clone_repo_to_blank
+    # open vscode if modules instal are good.
     if [[ $? -eq 0 ]]; then 
         code .
         if ! [[ -z ${repo_to_push} ]]; then
