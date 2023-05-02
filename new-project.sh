@@ -27,22 +27,24 @@ push_repository() {
     git push -u origin main
 }
 
+# exit the script if it cant clone
 clone_repo_to_blank() {
     git clone ${template_adress} ${project_name}
-    cd ${project_name}
-    rm -rf .git
-    npm i
+    if [[ ${?} -eq 0 ]]; then
+        cd ${project_name}
+        rm -rf .git
+        npm i
+    else
+        exit
+    fi
 }
 
 main() {
     help
     clone_repo_to_blank
-    # open vscode if modules instal are good.
-    if [[ $? -eq 0 ]]; then 
-        code .
-        if ! [[ -z ${repo_to_push} ]]; then
-        push_repository
-        fi
+    code .
+    if ! [[ -z ${repo_to_push} ]]; then
+    push_repository
     fi
 }
 
