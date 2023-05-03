@@ -3,6 +3,7 @@
 
 if  [[ ${#} -eq 0 ]]; then
 	echo "${0} <project_directory> <project_port>"
+	exit
 fi
 
 project_directory=$1
