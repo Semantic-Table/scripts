@@ -8,8 +8,8 @@ repo_to_push=${3}
 commit_message=${4}
 
 help() {
-    if [[ ${#} == 1 && ${1} == "help" ]]; then
-        echo "projectfromteplate template_adress project_name [repo_to_push] [commit_message]"
+    if [[ ${#} == 0 ]]; then
+        echo "${0} <template_adress> <project_name> [repo_to_push] [commit_message]"
         exit
     fi
 }
